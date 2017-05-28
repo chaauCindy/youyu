@@ -1,0 +1,213 @@
+main h2 {
+    @extend %nnb-bk;
+    @include font-rem(20px, 1);
+}
+.carousel{
+    position: relative;
+}
+.carousel-list{
+    list-style: none;    
+    &::after{
+        @extend %clearfix;
+    }
+    li{
+        float: left;
+        a {
+            display: block;
+            $link-size: 10px;
+            width: $link-size;
+            height: $link-size;
+            background: darken(get-color(bg-grey),10%);
+            border-radius: 5px;
+            margin: 5px;
+            
+            &.on{
+                background: saturate(get-color(red),20%);
+            }
+        }
+    }
+}
+.tab-banner{
+    height: $leading * 23;
+   .carousel-list{
+       @include position-center(h);
+       top: $leading * 22;
+   }
+}
+.product{
+    @extend .gap-1;
+    border: 1px solid get-color(bg-grey);
+    padding: $leading - 1;
+    position: relative;    
+    .thumbnail {
+        margin-bottom: $leading;
+        &>img{
+            display: block;
+        }
+    }
+    dt, dd {        
+        @include font-rem(14px);
+    }
+    dt, dd:not([class$="review"]) {
+        @include ellipsis(1); 
+    }
+    dd {
+        @extend %nnr-bk;
+    }
+    .product-review {
+        @include ellipsis(2);
+    }
+    .product-name{
+        @extend %nnb-bk;
+    }
+    .product-price{
+        @extend %nnr-red;
+        @extend .gap-1;
+        @include font-rem(17px, 1);
+    }
+    .ico-like{
+        position: absolute;
+        right: $leading;
+        bottom: $leading;
+        display: block;
+        $ico-width: 16px;
+        $ico-padding: 2px;
+        width: $ico-width;
+        height: $ico-width;
+        padding: $ico-padding;
+        overflow: hidden;
+        text-indent: $ico-width + $ico-padding * 2;
+        @include get-sprite('like-off', $ico-width, $ico-padding);
+        
+        &.on{
+            @include get-sprite('like-on', $ico-width, $ico-padding);
+        }
+        &.sm{
+            bottom: $leading * 3.152;
+        }
+    }
+    .product-star{
+        $ico-width: 14px;
+        @extend .gap-1;
+        text-align: center;
+        .default-star{
+            display: inline-block;
+            width: 70px;
+            margin: 0 auto;
+            height: $ico-width;
+            @include get-sprite('star-off', $ico-width);
+            background-position-x: left;
+            background-repeat: repeat-x;
+            background-size: $ico-width;
+            text-align: left;
+        }
+        @for $i from 1 through 5{
+        .star-#{$i} {
+                display: inline-block;
+                width: $ico-width * $i;
+                height: $ico-width;
+                margin: 0;
+                text-indent: 9999px;
+                @include get-sprite('star-on', $ico-width);
+                background-position-x: left;
+                background-repeat: repeat-x;
+                background-size: $ico-width;
+            }
+        }
+    }
+    
+}
+.brand{
+    @extend .gap-1;
+    position: relative;
+
+    & .btn-brand::before{
+        text-align:center;
+        background: get-color(bg-grey);
+        position: absolute;
+        left: 0; top: 0;
+        display: inline-block;
+        color: get-color(red);
+        width:22px;
+        line-height: 147px;
+        @include font-rem(9px);
+    }
+    & .btn-prev{
+        left: -32px;
+    }
+    & .btn-next{
+        right: -32px;
+    }
+    & .btn-prev::before{
+        content: '\25c0';
+    }
+    & .btn-next::before{
+        content: '\25b6';
+    }
+    
+    li{
+        position: relative;
+        height: $leading * 7;
+        counter-increment: number;
+    }
+    .favorite{
+        display: inline-block;
+        width: 100%;
+        background: rgba(0,0,0,.5);
+        @extend %nnb-white;        
+        @include font-rem(11px, 1);
+        height: $leading;
+        position: absolute;
+        bottom: 0;
+    }
+    .favorite::before{
+        content: counter(number, decimal-leading-zero) ".";
+        padding-left: 9px;
+    }
+    .favorite::after{
+        content: '\2661';
+        position: absolute;
+        right: 10px;
+    }
+    .favorite.on::after{
+        content: '\2665'
+    }
+    figure{
+        position: absolute;
+        &>img{
+            display: block;
+        }
+    }
+    figcaption{
+        position: absolute;
+        left: 0; top: 0;
+        text-align: center;
+        @extend %nnb-white;
+        text-shadow: 5px 5px 15px rgba(0,0,0,0.4);
+        @include font-rem(21px, 7);
+        width: 100%;
+    }
+}
+
+.btn-brand{
+    border: 1px solid get-color(#ddd);
+    position: absolute;
+    overflow: hidden;
+    padding-left: -9999px;
+    top: 0;
+    width: 22px;
+    height: 147px;
+}
+.tip-section{
+    &::before{
+        @extend %clearfix;
+        @extend .gap-1;
+    }
+    & img{
+        display: block;
+    }
+//    div{
+//         height: $leading * 11;
+//         overflow: hidden;
+//     }
+}

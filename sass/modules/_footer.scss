@@ -1,0 +1,130 @@
+footer{
+    margin-bottom: $leading;
+}
+.footer-bg{
+    background: #555;
+}
+%guide-line{
+    content: '';
+    @include position-center(v);
+    background: get-color(#ccc);
+    width: 1px;
+    height: 15px;
+}
+.guide-link{
+    width: 600px;
+    &::after{ 
+        @extend %clearfix;
+    }
+      & li {
+          float:left;
+          height: $leading * 2;
+          position: relative;
+          a {
+                @extend %nnb-white;
+                display: inline-block;
+                color: get-color(#ccc);
+                padding: 9px;
+                margin: 0 20px;
+          }          
+          &::before{
+              @extend %guide-line;
+              left: 0;
+          }
+          &:last-child::after{
+              @extend %guide-line;
+              right: 0;
+          }
+      }
+}
+.copyright {
+    @extend %nnb-bk;
+    @include font-rem(12px, 1);
+}
+.address{
+    @extend .copyright;
+    &::after{
+        @extend %clearfix;
+    }
+    dt, dd {
+        float: left;
+    }
+    dt{
+        &::after{
+            content: ".";
+            margin-right: 6px;
+        }
+    }
+    dd{
+        @extend %nnr-bk;
+        margin-right: 20px;
+    }
+}
+.sns-box{
+    @extend .gap-1;
+    padding-top: $leading / 3;
+}
+.sns-link{
+    li{
+        float:left;
+        a {
+            display: inline-block;
+            width: 26px;
+            height: 26px;
+            border-radius: 5px;
+            text-indent : -300px;
+            overflow: hidden;
+            margin-right: 5px;
+            background-image: url('../images/icons/s-icons.png');
+            background-position: 50% -9999px;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+    }
+    $sns-icon-space: 28px;
+    $each-i : 0;
+    $sns-map: ( //name, bg, border
+        (wechat, #2dc100, none),
+        (taobao, #e8741f, none),
+        (facebook, #475993, none),
+        (weibo, #f29600, none),
+        (insta, none, 1px solid #ddd)
+    );
+    @each $sns-name, $sns-bg, $sns-border in $sns-map{
+        .#{$sns-name}{
+            @if $sns-bg != none {
+                background-color: $sns-bg;
+            }
+            @if $sns-border != none {
+                border: $sns-border;
+            }
+            &:hover{
+                @if $sns-border != none {
+                    border: none;
+                }
+                background-position-y: $sns-icon-space * $each-i * -1 ;
+            }
+        }
+        $each-i:  $each-i + 1;
+    }
+}
+.partner{
+    padding-left: 15px;
+}
+.customer-center{
+    &::before{
+        content: '고객센터';
+        @extend %nnb-bk;
+        @include font-rem(21px, 1);
+    }
+    dt{
+        @extend .a11y-hidden;
+    }
+    dd{
+        @include font-rem(12px, 1);
+    }
+    .tel {
+        @extend %nnb-red;
+        @include font-rem(21px, 2);
+    }
+}

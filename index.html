@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>shoppingmall - youyu.com</title>
+    <link rel="stylesheet" href="./css/stylesheet.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="row gap-2">
+                <div class="col is-3">
+                    <h1><a href="#"><img src="./images/header/logo.png" alt="youyu.com"></a></h1>
+                </div>
+                <div class="col is-6">
+                    <form action="javascript:alert('검색!');" class="form-search">
+                        <fieldset>
+                            <legend>상품검색 폼</legend>
+                            <label for="search-keyword">검색 키워드</label>
+                            <input type="text" id="search-keyword" class="input-search"  placeholder="검색어를 입력하세요" required>
+                            <button type="submit">검색</button>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="col is-3">
+                    <ul class="top-link gap-1">
+                        <li><a href="#">회원가입</a></li>
+                        <li><a href="#">로그인</a></li>
+                    </ul>
+                    <ul class="top-link gap-1 hidden">
+                        <li><a href="#" class="user-info">mika513</a></li>
+                        <li><a href="#" class="icon cart">장바구니</a></li>
+                        <li><a href="#" class="icon alert">알림</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col is-12 gap-2">
+                    <nav class="navigation">
+                        <ul>
+                            <li class="active"><a href="#">MAIN</a></li>
+                            <li><a href="#">BRAND</a></li>
+                            <li><a href="#">SPECIAL</a></li>
+                            <li><a href="#">OUTER</a></li>
+                            <li><a href="#">TOPS</a></li>
+                            <li><a href="#">BOTTOM</a></li>
+                            <li><a href="#">DRESS</a></li>
+                            <li><a href="#">SHOES</a></li>
+                            <li><a href="#">BAG</a></li>
+                            <li><a href="#">ACC</a></li>
+                            <li><a href="#">SUMMER</a></li>
+                            <li><a href="#">ETC</a></li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <div class="wrapper gap-1">
+            <div class="filter">
+                <div class="container">
+                    <div class="row">
+                        <div class="col is-12">
+                            <div class="view-filter">
+                                <a id="toggle-filter" href="#">필터를 설정하세요</a>
+                            </div>
+                            <div class="hidden" id="pannel-filter">
+                                <form action="javascript:alert('필터검색!');" class="form-filter">
+                                    <fieldset>
+                                        <legend>연령대</legend>
+                                        <input type="radio" value="teenage" name="age" id="rdi-age-1"><label for="rdi-age-1">10대</label>
+                                        <input type="radio" value="20s" name="age" id="rdi-age-2"><label for="rdi-age-2">20대</label>
+                                        <input type="radio" value="30s" name="age" id="rdi-age-3"><label for="rdi-age-3">30대</label>
+                                    </fieldset>
+                                    <fieldset>
+                                        <legend>스타일</legend>
+                                        <input type="checkbox" value="girlish" name="style" id="chk-style-1"><label for="chk-style-1">소녀룩</label>
+                                        <input type="checkbox" value="modern" name="style" id="chk-style-2"><label for="chk-style-2">모던시크</label>
+                                        <input type="checkbox" value="simple" name="style" id="chk-style-3"><label for="chk-style-3">심플베이지</label>
+                                        <input type="checkbox" value="romantic" name="style" id="chk-style-4"><label for="chk-style-4">로맨틱</label>
+                                        <input type="checkbox" value="office" name="style" id="chk-style-5"><label for="chk-style-5">오피스룩</label>
+                                        <input type="checkbox" value="campus" name="style" id="chk-style-6"><label for="chk-style-6">캠퍼스룩</label>
+                                        <input type="checkbox" value="vintage" name="style" id="chk-style-7"><label for="chk-style-7">빈티지</label>
+                                        <input type="checkbox" value="training" name="style" id="chk-style-8"><label for="chk-style-8">트레이닝</label>
+                                    </fieldset>
+                                    <fieldset class="btn-group">
+                                        <legend>필터 설정 버튼</legend>
+                                        <button type="reset">초기화</button>
+                                        <button type="submit">필터 선택 완료</button>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+       <div class="container">
+           <div class="row gap-2">
+               <div class="col is-12">
+                   <div class="carousel tab-banner" role="region" aria-label="메인 배너 이벤트 영역">
+                       <ol role="tablist" class="carousel-list" aria-label="메인 배너 이동 탭 메뉴">
+                           <li role="presentation">
+                               <a href="#main-banner-01" role="tab">
+                                   <span class="a11y-hidden">인기상품 Top100 타임세일</span>
+                               </a>
+                           </li>
+                           <li role="presentation">
+                               <a href="#main-banner-01" role="tab">
+                                   <span class="a11y-hidden">인기상품 Top100 타임세일</span>
+                               </a>
+                           </li>
+                           <li role="presentation">
+                               <a href="#main-banner-01" role="tab">
+                                   <span class="a11y-hidden">인기상품 Top100 타임세일</span>
+                               </a>
+                           </li>
+                           <li role="presentation">
+                               <a href="#main-banner-01" role="tab">
+                                   <span class="a11y-hidden">인기상품 Top100 타임세일</span>
+                               </a>
+                           </li>
+                           <li role="presentation">
+                               <a href="#main-banner-01" role="tab">
+                                   <span class="a11y-hidden">인기상품 Top100 타임세일</span>
+                               </a>
+                           </li>
+                           <li role="presentation">
+                               <a href="#main-banner-01" role="tab">
+                                   <span class="a11y-hidden">인기상품 Top100 타임세일</span>
+                               </a>
+                           </li>
+                           <li role="presentation">
+                               <a href="#main-banner-01" role="tab">
+                                   <span class="a11y-hidden">인기상품 Top100 타임세일</span>
+                               </a>
+                           </li>
+                           <li role="presentation">
+                               <a href="#main-banner-01" role="tab">
+                                   <span class="a11y-hidden">인기상품 Top100 타임세일</span>
+                               </a>
+                           </li>
+                           <li role="presentation">
+                               <a href="#main-banner-01" role="tab">
+                                   <span class="a11y-hidden">인기상품 Top100 타임세일</span>
+                               </a>
+                           </li>
+                           <li role="presentation">
+                               <a href="#main-banner-01" role="tab" class="on">
+                                   <span class="a11y-hidden">인기상품 Top100 타임세일</span>
+                               </a>
+                           </li>
+                       </ol>
+                       <div class="banner">
+                            <section role="tabpanel" id="main-banner-01">
+                                <img src="./images/banner/banner-01.jpg" alt="">
+                                <span class="a11y-hidden">인기품목 100가지 20% 타임세일 - 이벤트 기간 <time datetime="2016-09-22T20:00">2016.09.22 pm8:00</time> 부터 <time datetime="2016-09-22T20:50">8:50</time>까지</span>
+                            </section>
+                        </div>
+                   </div>
+               </div>
+           </div>
+           <div class="row gap-2">
+               <div class="col is-12"><h2>베스트 셀러</h2></div>
+               <div class="col is-3">
+                   <div class="product">
+                        <dl class="product-item">
+                            <dt class="thumbnail"><img src="./images/best-seller/bs-seller-01.jpg" alt="Zemma World 제품 이미지"></dt>
+                            <dt class="product-name">Zemma World</dt>
+                            <dd class="product-desc">Puppy-코튼니트</dd>
+                            <dd class="product-price">39,000원</dd>                       
+                        </dl>
+                        <a href="#" class="ico-like on">찜보관함에서 제거하기</a>
+                   </div>
+               </div>
+               <div class="col is-3">
+                   <div class="product">
+                        <dl class="product-item">
+                            <dt class="thumbnail"><img src="./images/best-seller/bs-seller-02.jpg" alt="myblin 제품 이미지"></dt>
+                            <dt class="product-name">myblin</dt>
+                            <dd class="product-desc">버튼 체크 원피스</dd>
+                            <dd class="product-price">41,000원</dd>                       
+                        </dl>
+                        <a href="#" class="ico-like">찜보관함에 추가하기</a>
+                   </div>
+               </div>
+               <div class="col is-3">
+                   <div class="product">
+                        <dl class="product-item">
+                            <dt class="thumbnail"><img src="./images/best-seller/bs-seller-03.jpg" alt="BULLAN GIRL 제품 이미지"></dt>
+                            <dt class="product-name">BULLAN GIRL</dt>
+                            <dd class="product-desc">아미라벨맨투맨</dd>
+                            <dd class="product-price">12,500원</dd>                       
+                        </dl>
+                        <a href="#" class="ico-like">찜보관함에 추가하기</a>
+                   </div>
+               </div>
+               <div class="col is-3">
+                   <div class="product">
+                        <dl class="product-item">
+                            <dt class="thumbnail"><img src="./images/best-seller/bs-seller-04.jpg" alt="MINIBBONG 제품 이미지"></dt>
+                            <dt class="product-name">MINIBBONG</dt>
+                            <dd class="product-desc">Night-스키니팬츠</dd>
+                            <dd class="product-price">29,900원</dd>                       
+                        </dl>
+                        <a href="#" class="ico-like on">찜보관함에서 제거하기</a>
+                   </div>
+               </div>
+           </div>
+           <div class="row gap-2">
+               <div class="col is-12"><h2>브랜드</h2></div>
+               <div class="col is-12">
+                   <div class="brand">
+                        <ul class="row is-nesting">
+                            <li class="col is-3">
+                                <figure>
+                                    <img src="./images/brand/brand-01.jpg" alt="mixmix 브랜드 이미지">
+                                    <figcaption>mixmix<span class="a11y-hidden">브랜드 대표 이미지</span></figcaption>
+                                </figure>
+                                <a href="#" class="favorite on">mixmix<span class="a11y-hidden">즐겨찾기 되어있음, 즐겨찾기 해제하기</span></a>
+                            </li>
+                            <li class="col is-3">
+                                <figure>
+                                    <img src="./images/brand/brand-02.jpg" alt="REINE 브랜드 이미지">
+                                    <figcaption>REINE<span class="a11y-hidden">브랜드 대표 이미지</span></figcaption>
+                                </figure>
+                                <a href="#" class="favorite on">REINE<span class="a11y-hidden">즐겨찾기 되어있음, 즐겨찾기 해제하기</span></a>
+                            </li>
+                            <li class="col is-3">
+                                <figure>
+                                    <img src="./images/brand/brand-03.jpg" alt="BANHALA 브랜드 이미지">
+                                    <figcaption>BANHALA<span class="a11y-hidden">브랜드 대표 이미지</span></figcaption>
+                                </figure>
+                                <a href="#" class="favorite">BANHALA<span class="a11y-hidden">즐겨찾기 추가하기</span></a>
+                            </li>
+                            <li class="col is-3">
+                                <figure>
+                                    <img src="./images/brand/brand-04.jpg" alt="CHERRYKOKO 브랜드 이미지">
+                                    <figcaption>CHERRYKOKO<span class="a11y-hidden">브랜드 대표 이미지</span></figcaption>
+                                </figure>
+                                <a href="#" class="favorite">CHERRYKOKO<span class="a11y-hidden">즐겨찾기 추가하기</span></a>
+                            </li>
+                        </ul>
+                        <a href="#" class="btn-brand btn-prev">이전 브랜드 'ABC' 보기</a>
+                        <a href="#" class="btn-brand btn-next">다음 브랜드 'DEF' 보기</a>
+                   </div>
+               </div>           
+           </div>
+           <div class="row gap-2">
+               <div class="col is-12"><h2>신상품</h2></div>
+               <div class="col is-3">
+                   <div class="product">
+                        <dl class="product-item">
+                            <dt class="thumbnail"><img src="./images/new-items/new-product-01.jpg" alt="Monobabie 제품 이미지"></dt>
+                            <dt class="product-name">Monobabie</dt>
+                            <dd class="product-desc">엘렌 니트원피스</dd>
+                            <dd class="product-price">55,500원</dd>                       
+                        </dl>
+                        <a href="#" class="ico-like on">찜보관함에서 제거하기</a>
+                   </div>
+               </div>
+               <div class="col is-3">
+                   <div class="product">
+                        <dl class="product-item">
+                            <dt class="thumbnail"><img src="./images/new-items/new-product-02.jpg" alt="From Beginning 제품 이미지"></dt>
+                            <dt class="product-name">From Beginning</dt>
+                            <dd class="product-desc">Ohkoos vintage Knit</dd>
+                            <dd class="product-price">26,600원</dd>                       
+                        </dl>
+                        <a href="#" class="ico-like">찜보관함에 추가하기</a>
+                   </div>
+               </div>
+               <div class="col is-3">
+                   <div class="product">
+                        <dl class="product-item">
+                            <dt class="thumbnail"><img src="./images/new-items/new-product-03.jpg" alt="Zemma World 제품 이미지"></dt>
+                            <dt class="product-name">Zemma World</dt>
+                            <dd class="product-desc">Tied-골지니트</dd>
+                            <dd class="product-price">22,000원</dd>                       
+                        </dl>
+                        <a href="#" class="ico-like on">찜보관함에서 제거하기</a>
+                   </div>
+               </div>
+               <div class="col is-3">
+                   <div class="product">
+                        <dl class="product-item">
+                            <dt class="thumbnail"><img src="./images/new-items/new-product-04.jpg" alt="daily monday 제품 이미지"></dt>
+                            <dt class="product-name">daily monday</dt>
+                            <dd class="product-desc">Buckle Wrap mini skirt</dd>
+                            <dd class="product-price">27,000원</dd>                       
+                        </dl>
+                        <a href="#" class="ico-like on">찜보관함에서 제거하기</a>
+                   </div>
+               </div>  
+           </div>
+           <div class="row gap-2">
+               <div class="col is-6"><h2>언니의 팁</h2></div>
+               <div class="col is-3 is-offset-3">
+                    <div class="carousel is-reverse" role="region" aria-label="언니의 팁 영역">
+                        <ol role="tablist" class="carousel-list" aria-label="언니의 팁 탭 이동 메뉴">
+                            <li role="presentation">
+                                <a href="#tip-01" role="tab" class="on">
+                                    <span class="a11y-hidden">가을 원피스 기획전</span>
+                                </a>
+                            </li>
+                            <li role="presentation">
+                                <a href="#tip-02" role="tab">
+                                    <span class="a11y-hidden">체크무늬 코디팁</span>
+                                </a>
+                            </li>
+                            <li role="presentation">
+                                <a href="#tip-03" role="tab">
+                                    <span class="a11y-hidden">가볍게 들기 좋은 데일리 백!</span>
+                                </a>
+                            </li>
+                        </ol>
+                    </div>
+               </div>
+               <div role="tabpanel" class="tip-section">
+                    <div class="col is-4" id="tip-01">
+                        <img src="./images/tip/product-1.jpg" alt="" aria-labelledby="tip-desc-1"><span id="tip-desc-1" class="a11y-hidden">활용만점 가을 원피스 기획전 - 기간 <time datetime="2016-09-21">2016.09.21</time> 부터 <time datetime="2016-09-28">2016.09.28</time>까지</span>
+                    </div>
+                    <div class="col is-4" id="tip-02">
+                        <img src="./images/tip/product-2.jpg" alt="" aria-labelledby="tip-desc-2"><span id="tip-desc-2" class="a11y-hidden">코디팁 - 가을엔 체크무늬로 코디하기</span>
+                    </div>
+                    <div class="col is-4" id="tip-03">
+                        <img src="./images/tip/product-3.jpg" alt="" aria-labelledby="tip-desc-3"><span id="tip-desc-3" class="a11y-hidden">가볍게 들기 좋은 데일리백 20% 할인 - 재고소진 시 종료(제품별 제고가 다름)</span>
+                    </div>
+               </div>
+           </div>
+           <div class="row gap-2">
+               <div class="col is-12"><h2>베스트리뷰</h2></div>
+               <div class="col is-2">
+                   <div class="product">
+                        <dl class="product-item">
+                            <dt class="thumbnail"><img src="./images/best-review/bs-product-01.jpg" alt="따뜻해줘 가디건 제품 이미지"></dt>
+                            <dt class="product-name">따뜻해줘 가디건</dt>
+                            <dd class="product-review">배송은 쇼핑몰에서 입고가 늦어져서 ...</dd>
+                            <dd class="product-price">31,900원</dd>
+                            <dd class="product-star"><span class="default-star"><span class="star-1">5점 만점에 1점</span></span></dd>                   
+                        </dl>
+                        <a href="#" class="ico-like sm on">찜보관함에서 제거하기</a>
+                   </div>
+               </div>
+               <div class="col is-2">
+                   <div class="product">
+                        <dl class="product-item">
+                            <dt class="thumbnail"><img src="./images/best-review/bs-product-02.jpg" alt="버클트임박시후드 제품 이미지"></dt>
+                            <dt class="product-name">버클트임박시후드</dt>
+                            <dd class="product-review">후기를 너무 늦게 썼네요ㅠ 딱 제가 ...</dd>
+                            <dd class="product-price">30,600원</dd>
+                            <dd class="product-star"><span class="default-star"><span class="star-4">5점 만점에 4점</span></span></dd>                   
+                        </dl>
+                        <a href="#" class="ico-like sm">찜보관함에 추가하기</a>
+                   </div>
+               </div>
+               <div class="col is-2">
+                   <div class="product">
+                        <dl class="product-item">
+                            <dt class="thumbnail"><img src="./images/best-review/bs-product-03.jpg" alt="Chic-자켓 제품 이미지"></dt>
+                            <dt class="product-name">Chic-자켓</dt>
+                            <dd class="product-review">어깨가 좀 있는 편이어서 오버핏으...</dd>
+                            <dd class="product-price">49,000원</dd>
+                            <dd class="product-star"><span class="default-star"><span class="star-1">5점 만점에 3점</span></span></dd>                   
+                        </dl>
+                        <a href="#" class="ico-like sm on">찜보관함에서 제거하기</a>
+                   </div>
+               </div>
+               <div class="col is-2">
+                   <div class="product">
+                        <dl class="product-item">
+                            <dt class="thumbnail"><img src="./images/best-review/bs-product-04.jpg" alt="마실로 루즈핏 니... 제품 이미지"></dt>
+                            <dt class="product-name">마실로 루즈핏 니트 가디건</dt>
+                            <dd class="product-review">베이지색상 가디건 필요했었는데 마침...</dd>
+                            <dd class="product-price">19,000원</dd>
+                            <dd class="product-star"><span class="default-star"><span class="star-5">5점 만점에 5점</span></span></dd>                   
+                        </dl>
+                        <a href="#" class="ico-like sm">찜보관함에 추가하기</a>
+                   </div>
+               </div>
+               <div class="col is-2">
+                   <div class="product">
+                        <dl class="product-item">
+                            <dt class="thumbnail"><img src="./images/best-review/bs-product-05.jpg" alt="멜라니 트렌치 코트 제품 이미지"></dt>
+                            <dt class="product-name">멜라니 트렌치 코트</dt>
+                            <dd class="product-review">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</dd>
+                            <dd class="product-price">19,000원</dd>
+                            <dd class="product-star"><span class="default-star"><span class="star-1">5점 만점에 1점</span></span></dd>                   
+                        </dl>
+                        <a href="#" class="ico-like sm">찜보관함에 추가하기</a>
+                   </div>
+               </div>
+               <div class="col is-2">
+                   <div class="product">
+                        <dl class="product-item">
+                            <dt class="thumbnail"><img src="./images/best-review/bs-product-06.jpg" alt="Luci-브이넥니트 제품 이미지"></dt>
+                            <dt class="product-name">Luci-브이넥니트</dt>
+                            <dd class="product-review">노랑노랑하니 봄분위기 나고좋아...</dd>
+                            <dd class="product-price">24,000원</dd>
+                            <dd class="product-star"><span class="default-star"><span class="star-2">5점 만점에 2점</span></span></dd>                   
+                        </dl>
+                        <a href="#" class="ico-like sm on">찜보관함에서 제거하기</a>
+                   </div>
+               </div>
+           </div>
+       </div>
+    </main>
+    <footer>
+        <div class="footer-bg gap-2">
+            <div class="container">
+                <div class="row">
+                    <div class="col is-12">
+                        <ul class="guide-link">
+                            <li><a href="#">YOUYU소개</a></li>
+                            <li><a href="#">통합배송</a></li>
+                            <li><a href="#">고객센터</a></li>
+                            <li><a href="#">이용약관,개인정보</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row gap-2">
+                <div class="col is-10">
+                    <address>
+                        <dl class="address is-7">
+                            <dt>Company</dt>
+                            <dd>YOUYU</dd>
+                            <dt>대표이사</dt>
+                            <dd>이정희</dd>
+                            <dt>개인정보관리책임자</dt>
+                            <dd>이정희</dd>
+                            <dt>사업자번호</dt>
+                            <dd>123-45-67890</dd>
+                            <dt>통신판매업신고</dt>
+                            <dd>2016-성남분당-1234</dd>
+                            <dt>주소</dt>
+                            <dd>경기 성남시 분당구 판교역로 221 102호</dd>
+                            <dt>대표번호</dt>
+                            <dd>1234-5678</dd>
+                        </dl>
+                        <p class="copyright">Copyright &copy; 2016 YOUYU Co,. Ltd. All rights reserved.</p>
+                    </address>
+                    <div class="sns-box">
+                        <ul class="sns-link">
+                            <li><a href="#" class="wechat">wechat으로 youyu.com 공유하기</a></li>
+                            <li><a href="#" class="taobao">taobao로 youyu.com 공유하기</a></li>
+                            <li><a href="#" class="facebook">facebook으로 youyu.com 공유하기</a></li>
+                            <li><a href="#" class="weibo">weibo로 youyu.com 공유하기</a></li>
+                            <li><a href="#" class="insta">instagram으로 youyu.com 공유하기</a></li>
+                        </ul>
+                        <a href="#" class="partner"><img src="./images/footer/partner.png" alt="youyu.com은 Codibook과 함께합니다."></a>
+                    </div>
+                </div>
+                <div class="col is-2">
+                    <dl class="customer-center">
+                        <dt>고객센터 전화번호</dt>
+                        <dd class="tel">1234-5678</dd>
+                        <dt>고객센터 운영시간</dt>
+                        <dd>월~금  11AM ~ 6PM</dd>
+                        <dt>고객센터 점심시간</dt>
+                        <dd>LUNCH  12:30 ~ 1:30PM</dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </footer>
+<script src="./js/toggleGrid.js"></script>
+</body>
+</html>

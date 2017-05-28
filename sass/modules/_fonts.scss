@@ -1,0 +1,46 @@
+
+@font-face {
+    font: {
+        family: 'NanumSqure';
+        style: normal;
+        weight: 400;
+    }
+    src: local('NanumSqure'), local('Nanum-Squre'),
+    url('./fonts/NanumSquare.eot'),
+    url('./fonts/NanumSquare.woff') format('woff')
+}
+
+// 페이지에 사용되는 컬러 정의
+@function get-color($color-code){
+    $color-map: (red: #991717, black: #333, grey: #555656, bg-grey: #f0f0f0, btn-grey: #aaa);
+    @if map_has_key($color-map, $color-code){
+        @return map-get($color-map, $color-code);
+    }@else {
+        @return $color-code;
+    }
+}
+
+%font-bold {
+    font-weight: 700;
+}
+%font-normal {
+    font-weight: 400;
+}
+%nnb-red{
+    @extend %font-bold;
+    color: get-color(red);
+}
+%nnb-white{
+    @extend %font-bold;
+    color: get-color(white);
+}
+%nnb-bk{
+    @extend %font-bold;
+    color: get-color(black);
+}
+%nnr-bk{
+    color: get-color(black);
+}
+%nnr-red{
+    color: get-color(red);
+}

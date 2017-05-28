@@ -1,0 +1,9 @@
+{
+  "scripts": {
+    "sass": "node-sass --output-style expanded --source-map ./map sass/ -o css/",
+    "watch": "npm run sass -- -w"
+  },
+  "devDependencies": {
+    "node-sass": "^4.5.0"
+  }
+}

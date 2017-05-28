@@ -1,0 +1,17 @@
+/*! init.css */
+html{
+    box-sizing: border-box;
+    font-size: 10px;
+    /* scroll에 따라 화면 정렬이 바뀌는것을 방지 */
+    overflow-y: scroll;
+}
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+body{
+    margin: 0;
+    font-size: 1.4rem;
+    line-height: 1.5;
+}

@@ -1,0 +1,75 @@
+// --------------------------------------------
+// 설계
+// --------------------------------------------
+// 기본 글꼴 설정
+$base-font-size: 14px !default;
+$leading-scale: 1.5;
+$leading: $base-font-size * $leading-scale;
+
+// 그리드 시스템 가이드라인 토글 클래스
+$toggle-classname: 'show-grid';
+// 그리드 시스템 가이드라인 높이
+$guide-height: 500vh;
+// 컬럼의 총 갯수
+$columns: 12;
+// 컬럼 폭
+$column-width: 70px;
+// 거터 방향 [before|after|split|no-gutter|inside]
+$gutter-position: 'split';
+// 거터 간격
+$gutter-width: 20px;
+// 페이지 총 넓이
+$page-width: ($column-width + $gutter-width) * $columns;
+// 거터 셋팅
+$col-margin-right: 0;
+$col-margin-left: 0;
+@if $gutter-position == 'before' {
+    $col-margin-right: 0;
+    $col-margin-left: $gutter-width;
+}@else if $gutter-position == 'after' {
+    $col-margin-right: $gutter-width;
+    $col-margin-left: 0;
+}@else if $gutter-position == 'split' {
+    $col-margin-right: $gutter-width / 2;
+    $col-margin-left: $gutter-width / 2;
+}@else if $gutter-position == 'no-gutter' {
+    $col-margin-left: 0;
+    $col-margin-right: 0;
+}
+
+// --------------------------------------------
+// function
+// --------------------------------------------
+@function column-width($n: 1){
+    @return ($column-width * $n) + ($gutter-width * ($n - 1));
+}
+@function offset-width($n: 1){
+    @return column-width($n) + $gutter-width + $col-margin-left;
+}
+@function ele-width($col: 1, $gutter: 1){
+    @return ($column-width * $col) + ($gutter-width * $gutter);
+}
+
+// --------------------------------------------
+// function
+// --------------------------------------------
+
+//
+html{
+    box-sizing: border-box;
+    font-size: $base-font-size;
+	font-family: 'NanumSqure', sans-serif;
+    /* scroll에 따라 화면 정렬이 바뀌는것을 방지 */
+    overflow-y: scroll;
+}
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+body{
+    line-height: $leading-scale;
+}
+a {
+    text-decoration: none;
+}

@@ -1,0 +1,108 @@
+
+%clearfix{
+    content: '';
+    display: block;
+    clear: both;
+}
+.a11y-hidden{
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    clip: rect(0 0 0 0);    /* IE 구버전 지원 */
+    clip: rect(0, 0, 0, 0);
+    overflow: hidden;
+    position: absolute;
+}
+.hidden{
+    display: none;
+}
+
+@function get-sprite-pos($ico, $bg-width){
+    $ico-map: (
+        alam: 154px,
+        cart: 200px,
+        contact: 413px,
+        filter: 310px,
+        like-on: 0px,
+        like-off: 520px,
+        profile: 260px,
+        search: 470px,
+        shop-bag: 363px,
+        star-on: 52px,
+        star-off: 104px
+    );
+    $icon-width: 46px;
+    $icon-height: 555px;    
+    $bg-height: $icon-height * ($bg-width / $icon-width);
+    $icon-pos-p: map-get($ico-map, $ico);
+    $icon-pos: $icon-pos-p / $icon-height;
+
+    @return $bg-height * $icon-pos;
+}
+
+@mixin get-sprite($ico, $bg-width, $opt-pad: 0){
+    $v-pos: (get-sprite-pos($ico, $bg-width) * -1) + $opt-pad;
+    background: url('../images/icons/b-icons.png') no-repeat 50% $v-pos /cover;
+}
+
+@mixin font-rem($font-pixel, $line-size : 0){
+    $rem-size: ($font-pixel / $base-font-size) * 1rem;
+    font-size: $rem-size;
+    @if $line-size > 0 {
+        line-height: $leading * $line-size;
+    }
+}
+
+%btn{
+    &-sm, &-rg {
+        @extend %nnb-white;
+        display: inline-block;
+        text-align: center;
+        border: 0 none;
+    }
+    &-sm{
+        width: 70px;
+        @include font-rem(12px, 1);
+        border-radius: 2px;
+        letter-spacing: -.025rem;
+    }
+    &-rg{
+        padding: 8px 20px;
+        @include font-rem(15px);
+        border-radius: 16px;
+    }
+    &-red{
+        background: get-color(red);
+    }
+    &-grey{
+        background: get-color(btn-grey);
+    }
+}
+
+@mixin ellipsis($line-cnt: 1){
+    @if $line-cnt > 1 {
+        display: block;
+        display: -webkit-box;
+        height: $leading * $line-cnt;
+        -webkit-line-clamp: $line-cnt;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }@else {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+@mixin position-center($pos: v){
+    @if $pos == v {
+        position: absolute;
+        top:50%;
+        transform: translateY(-50%);
+    }@else if $pos == h {
+        position: absolute;
+        left:50%;
+        transform: translateX(-50%);
+    }
+}

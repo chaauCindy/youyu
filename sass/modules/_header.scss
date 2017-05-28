@@ -1,0 +1,196 @@
+h1{
+    a {
+        display: block;
+        height: $leading * 3;
+    }
+    img {
+        width: ele-width(2, 1.5);
+    }
+}
+.form-search{
+    $submit-size: 20px;
+    border: 2px solid get-color(grey);
+    width: ele-width(4, 5);
+    margin-top: ($leading - 4) / 2;
+    margin-left: auto;
+    margin-right: auto;
+    padding: ($leading - 4) / 2;
+    legend{
+        @extend .a11y-hidden;
+    }
+    .input-search{
+        border: 0 none;
+        width: calc(100% - #{$submit-size} - 10px);
+        vertical-align: middle;
+    }
+    label{
+        @extend .a11y-hidden;
+    }
+    button{
+        $btn-padding: 3px;
+        width: $submit-size;
+        height: $submit-size;
+        vertical-align: middle;
+        padding: $btn-padding;
+        border: 0 none;
+        text-indent: -9999px;
+        overflow: hidden;
+        cursor: pointer;
+        @include get-sprite('search', $submit-size, $btn-padding);
+    }
+}
+
+.top-link{
+    text-align: right;
+    li {
+        display: inline-block;
+    }
+    a {
+        @extend %nnb-red;
+        margin-left: 20px;
+        display: inline-block;
+        border: 1px solid get-color(white);
+        padding: 5px 10px;    
+        vertical-align: middle;
+        &:not(.icon):not(.user-info):hover{
+            border: 1px solid get-color(red);
+            border-radius: 2px;
+        }
+    }
+    .user-info{
+        &::after{
+            content: '\25be';
+            padding-left: 10px;
+        }
+    }
+    $icon-size: 24px;
+    $icon-padding: 5px;
+    .icon{
+        width: $icon-size;
+        height: $icon-size;
+        // padding: $icon-padding - 4;
+        overflow: hidden;
+        text-indent: 9999px;
+    }
+    .cart{
+        @include get-sprite('cart', $icon-size, $icon-padding);
+    }
+    .alert{
+        @include get-sprite('alam', $icon-size, $icon-padding);
+        margin: 0;
+    }
+}
+
+.navigation{
+    ul::after{
+        @extend %clearfix;
+    }
+    li{
+        float:left;
+        max-height: $leading;
+        &:not(:last-child){
+            margin-right: 18px;
+        }
+        &:last-child{
+            float: right;
+            & a{
+                padding: 5px 10px;
+            }
+        }
+    }
+    a {
+        @extend %nnb-bk;
+        padding: 5px 15px;
+        &:hover{
+            @extend %nnb-red;
+            border-bottom: 2px solid get-color(red);
+        }
+    }
+    .active > a{
+        border-radius: 2px;
+        background: get-color(red);
+        color: get-color(white);
+    }
+}
+.wrapper{
+    border-top: 2px solid get-color(red);
+    position: relative;
+    height: $leading * 2;
+}
+.filter{
+    width: 100%;
+    position: absolute;
+    left: 50%;
+    z-index: 1000;
+    border-bottom: 1px solid #ddd;
+    background: get-color(bg-grey);
+    transform: translateX(-50%);
+    max-height: $leading * 11;
+    legend {
+        float: left;
+        @extend %nnb-bk;
+        margin-right: 10px;
+        @include font-rem(17px, 1);
+    }
+    fieldset{
+        @extend .gap-1;
+        
+        &::after{
+            @extend %clearfix;
+        }
+        input[type="radio"],input[type="checkbox"] {
+            visibility: hidden;
+        }
+        label{
+            float: left;
+            margin: 0 5px;
+            @extend %btn-sm;
+            @extend %btn-grey;
+        }
+        input:checked + label{
+           @extend %btn-red;
+           font-weight: 400;
+           letter-spacing: 0;
+        }
+    }
+    @at-root .view-filter{
+        height: $leading * 2 - 2px;
+        position: relative;
+        & a{
+            $ico-width: 16px;
+            @extend %nnb-red;
+            padding-left: $ico-width + 10px;
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            &::before{
+                $ico-padding: 2px;
+                width: $ico-width;
+                height: $ico-width;
+                padding : $ico-padding;
+                content: '';
+                @include position-center(v);
+                left: 0;
+                @include get-sprite('filter', $ico-width, $ico-padding);
+            }
+        }    
+    }
+    .btn-group{
+        @extend .gap-2;
+        text-align: center;
+        padding-bottom: $leading;
+        legend { 
+            @extend .a11y-hidden;
+        }
+        button{
+            @extend %btn-rg;
+            margin: $leading * 0.25 5px;
+            &[type="reset"]{
+                @extend %btn-grey;
+            }
+            &[type="submit"]{
+                @extend %btn-red;
+            }
+        }
+    }
+}

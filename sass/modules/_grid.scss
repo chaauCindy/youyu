@@ -1,0 +1,91 @@
+// --------------------------------------------
+// grid layout
+// --------------------------------------------
+/* Toggle grid Mudule */
+%grid-content{
+    content: '';
+    position: absolute;
+    top: 0;
+    height: $guide-height;
+}
+.#{$toggle-classname}{
+    &::before {
+        $leading-limit: $leading - 1;
+        $grid-color: #0cf;        
+        @extend %grid-content;
+        z-index: 10000;
+        left: 0;
+        width: 100%;
+        background: linear-gradient(180deg, transparent $leading-limit, $grid-color $leading-limit);
+        background-size: 1px $leading;
+    }
+    &::after {
+        $column-color: rgba(#fb8989, 0.3);
+        $harf-gutter-width: $column-width + $col-margin-left;
+        $full-width: $gutter-width + $column-width;
+        @extend %grid-content;
+        z-index: 10010;
+        left: 50%;
+        width: $page-width;
+        transform: translateX(-50%);
+        background: linear-gradient(90deg, transparent $col-margin-left , $column-color $col-margin-left, $column-color $harf-gutter-width, transparent $harf-gutter-width);
+        background-size: $full-width 1px;
+    }
+}
+
+/* Container Module */
+.container{
+    width: $page-width;
+    margin-right: auto;
+    margin-left: auto;
+}
+/* Row Module */
+.row{
+    &::after {
+        @extend %clearfix;
+    }
+// 중첩 로우(행) 모듈
+    &.is-nesting{
+        & > :first-child{ margin-left: 0; }
+        & > :last-child{ margin-right: 0; }
+    }
+}
+.is-isolate > .col {
+    margin-right: -100%;
+}
+$gap-map:(1,2,3);
+@each $row-gap in $gap-map{
+    .gap-#{$row-gap} {
+        margin-top: #{$leading * $row-gap};
+    }
+}
+/* Column Module */
+.col {
+    min-height: $leading;
+    float:left;
+    margin-right: $col-margin-right;
+    margin-left: $col-margin-left;
+}
+.is-reverse {
+    float: right;
+}
+@for $i from 1 through $columns {
+    // 컬럼 폭
+    // .is-*
+    .is-#{$i} { 
+        width: column-width($i); 
+    }
+    //  Offset Module 
+    // .is-offset-*
+    $offset-width: offset-width($i);
+    .is-offset-#{$i} {
+        margin-left: $offset-width;
+        .is-nesting &:first-child{
+            margin-left: $offset-width - $col-margin-left;
+        }
+    }
+    .o-#{$i}{
+        margin-left: $offset-width - $column-width - $gutter-width;
+    }
+}
+/* Utilites Module */

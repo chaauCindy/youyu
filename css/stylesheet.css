@@ -668,6 +668,10 @@ main h2 {
   position: relative;
 }
 
+.product:hover {
+  border: 2px solid #991717;
+}
+
 .product .thumbnail {
   margin-bottom: 21px;
 }

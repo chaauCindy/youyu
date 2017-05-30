@@ -39,6 +39,9 @@ main h2 {
     border: 1px solid get-color(bg-grey);
     padding: $leading - 1;
     position: relative;    
+    &:hover{
+        border: 2px solid get-color(red);
+    }
     .thumbnail {
         margin-bottom: $leading;
         &>img{
